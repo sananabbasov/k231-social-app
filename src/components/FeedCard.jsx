@@ -26,14 +26,15 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function FeedCard() {
+export default function FeedCard({postData}) {
  
   return (
     <Card>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
+            <img src={postData.profilePhoto} className='w-full h-full
+            ' alt="" />
           </Avatar>
         }
         action={
