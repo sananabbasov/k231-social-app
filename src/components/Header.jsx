@@ -13,6 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom';
+import PostCreateModal from './PostCreateModal';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -37,7 +38,7 @@ function Header() {
     };
 
     return (
-        <AppBar  position="static" className='!bg-orange-900'>
+        <AppBar position="static" className='!bg-orange-900'>
             <Container maxWidth="xl" >
                 <Toolbar disableGutters>
                     <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -114,15 +115,15 @@ function Header() {
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 
-                        <Button 
+                        <Button
                             sx={{ my: 2, color: 'white', display: 'block' }}
                         >
                             <Link to="/">
                                 Home
                             </Link>
                         </Button>
-                        
-                        <Button 
+
+                        <Button
                             sx={{ my: 2, color: 'white', display: 'block' }}
                         >
                             <Link to="/login">
@@ -154,11 +155,15 @@ function Header() {
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
                         >
-                            {settings.map((setting) => (
-                                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                    <Typography textAlign="center">{setting}</Typography>
-                                </MenuItem>
-                            ))}
+                            <MenuItem onClick={handleCloseUserMenu}>
+                                <Typography textAlign="center">Profile</Typography>
+                            </MenuItem>
+                         
+                            <MenuItem onClick={handleCloseUserMenu}>
+                                <PostCreateModal />
+                            </MenuItem>
+
+
                         </Menu>
                     </Box>
                 </Toolbar>

@@ -14,7 +14,9 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-
+import FeedSlider from './FeedSlider';
+import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Swiper styles
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -26,10 +28,10 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function FeedCard({postData}) {
- 
+export default function FeedCard({ postData }) {
+
   return (
-    <Card>
+    <Card className='my-5 w-[70%] m-auto'>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -45,17 +47,10 @@ export default function FeedCard({postData}) {
         title="Shrimp and Chorizo Paella"
         subheader="September 14, 2016"
       />
-      <CardMedia
-        component="img"
-        height="194"
-        image="/static/images/cards/paella.jpg"
-        alt="Paella dish"
-      />
+      <FeedSlider images={postData.images} />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the mussels,
-          if you like.
+        {postData.description}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -66,7 +61,7 @@ export default function FeedCard({postData}) {
           <ShareIcon />
         </IconButton>
       </CardActions>
-     
+
     </Card>
   );
 }

@@ -19,10 +19,10 @@ function FeedPage() {
                 <div>
                     Left
                 </div>
-                <div>
+                <div className='w-[60%]'>
                     {
                         posts.map((post, index) => (
-                            <FeedCard key={index} postData={post}  />
+                            <FeedCard  key={index} postData={post}  />
                         ))
                     }
                 </div>
