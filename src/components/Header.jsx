@@ -21,6 +21,7 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 function Header() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const [darkMode, setDarkMode] = React.useState(false);
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
